@@ -1,5 +1,6 @@
 package aplicacao.model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ACMERental {
@@ -10,7 +11,11 @@ public class ACMERental {
     //    private Locacoes[] locacoes;
     private Locacoes locacoes;
 
+    //scanner para numeros
     private Scanner sc;
+
+    //scanner para String
+    private Scanner scStr;
 
     public ACMERental(){
         acervo = new Acervo();
@@ -28,7 +33,8 @@ public class ACMERental {
         acervo.adicionaAlugavel(item3);
 
 
-        // 5 alugueis - um dos alugueis deve ter periodo maior que 7 dias, um dos itens alugaveis deve possuir tres alugueis diferentes, dois alugueis devem ser do mesmo cliente
+        // 5 alugueis - um dos alugueis deve ter periodo maior que 7 dias, um dos itens alugaveis deve possuir tres alugueis diferentes,
+        // dois alugueis devem ser do mesmo cliente
         Aluguel aluguel1 = new Aluguel("20/08/2022",  5, "230.149.108-05", "Roberto Pereira", item1);
         Aluguel aluguel2 = new Aluguel("20/08/2022",  8, "230.149.108-05", "Roberto Pereira", item3);
         Aluguel aluguel3 = new Aluguel("17/08/2022",  3, "061.231.180-15", "Carlos Santos", item2);
@@ -55,7 +61,7 @@ public class ACMERental {
                     pesquisarPeloCodigo();
                     break;
                 case 3:
-//                    pesquisarPeloNome();
+                    pesquisarPeloNome();
                     break;
                 case 4:
 //                    pesquisarAlugueisPeloCliente();
@@ -101,4 +107,27 @@ public class ACMERental {
             System.out.println(alugavel);
         }
     }
+
+    private void pesquisarPeloNome() {
+        System.out.print("Digite o nome do item");
+        String nome = scStr.nextLine();
+        ArrayList<Alugavel> listaItensPeloNome = acervo.pesquisaAlugavel(nome);
+        if(listaItensPeloNome == null){
+            System.out.println("Nenhum item alugavel encontrado com esse nome");
+        }else{
+            listaItensPeloNome.forEach(System.out::println);
+        }
+    }
+
+    private void pesquisarAlugueisCliente(){
+        System.out.print("Informe o cpf: ");
+        String cpf = scStr.nextLine();
+        ArrayList<Aluguel> listaAlugueisCliente = locacoes.pesquisaAluguel(cpf);
+        if(listaAlugueisCliente == null){
+            System.out.println("Nenhum aluguel encontrado com esse CPF");
+        }else{
+            listaAlugueisCliente.forEach(System.out::println);
+        }
+    }
+
 }
