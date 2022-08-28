@@ -1,7 +1,8 @@
 package aplicacao;
 
-import aplicacao.model.ACMERental;
-
+/**
+ * Autor: Rodrigo Rosa Renck
+ */
 public class Main {
 
 	public static void main(String[] args) {

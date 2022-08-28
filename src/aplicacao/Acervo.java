@@ -1,15 +1,14 @@
-package aplicacao.model;
+package aplicacao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * classe catálogo que gerencia o cadastro de itens alugáveis
+ * Autor: Rodrigo Rosa Renck
  */
 public class Acervo {
 
-    //posso usar ArrayList ao inves de array?
-//	private Alugavel[] alugavel;
     //lista de itensAlugaveis
     private List<Alugavel> listaItens = new ArrayList<>();
 
@@ -40,9 +39,7 @@ public class Acervo {
         //se iterarmos por toda nossa lista e nao acharmos um item do codigo desejado retornamos null
         return null;
     }
-    
 
-    //nome tem que ser exatamente igual ou posso desconsiderar lower e upper case?
     public ArrayList<Alugavel> pesquisaAlugavel(String nome) {
         ArrayList<Alugavel> listaNomeSolicitado = new ArrayList<>();
         for (Alugavel item :

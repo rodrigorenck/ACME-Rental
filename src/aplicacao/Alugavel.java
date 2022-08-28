@@ -1,10 +1,11 @@
-package aplicacao.model;
+package aplicacao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Equipamento esportivo
+ * Autor: Rodrigo Rosa Renck
  */
 public class Alugavel {
 
@@ -14,13 +15,10 @@ public class Alugavel {
 
 	private double precoDiario;
 
-	//de qual esporte eh esse equipamento
 	private String esporte;
 
-	//de qual marca -> criar ENUM?
 	private String marca;
 
-	//nao deveria ter uma lista de alugueis?
 	private List<Aluguel> listaAlugueis = new ArrayList<>();
 
 
@@ -29,6 +27,9 @@ public class Alugavel {
 		this.nome = nome;
 		this.precoDiario = precoDiario;
 	}
+
+
+	public Alugavel(){}
 
 	public Alugavel(int codigo, String nome, double precoDiario, String esporte, String marca) {
 		this.codigo = codigo;
@@ -50,10 +51,8 @@ public class Alugavel {
 				'}';
 	}
 
-	//nao entendi esse metodo -> nao deveria ser void?
 	public boolean adicionaAluguel(Aluguel aluguel) {
-		listaAlugueis.add(aluguel);
-		return true;
+		return listaAlugueis.add(aluguel);
 	}
 
 	public List<Aluguel> getListaAlugueis() {

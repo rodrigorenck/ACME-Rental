@@ -1,8 +1,11 @@
-package aplicacao.model;
+package aplicacao;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Autor: Rodrigo Rosa Renck
+ */
 public class Locacoes {
 
 //	private Aluguel[] aluguel;
@@ -24,5 +27,4 @@ public class Locacoes {
 		}
 		return listaAlugueisPorCpf;
 	}
-
 }

@@ -1,5 +1,8 @@
-package aplicacao.model;
+package aplicacao;
 
+/**
+ * Autor: Rodrigo Rosa Renck
+ */
 public class Aluguel {
 
 	private String data;
@@ -12,17 +15,17 @@ public class Aluguel {
 
 	private double valorFinal;
 
-	//preciso desse atributo ne?
 	private Alugavel item;
 
 	public Aluguel(int periodo, String cpf, String nome, Alugavel item) {
 		this.periodo = periodo;
 		this.cpf = cpf;
 		this.nome = nome;
-		this.item = item;
 		adicionarItem(item);
 		valorFinal = calculaValorFinal();
 	}
+
+	public Aluguel(){}
 
 	//nao faz sentido receber o valorFinal no construtor pois ele deve ser calculado pelo metodo
 	public Aluguel(String data, int periodo, String cpf, String nome, Alugavel item) {
@@ -34,6 +37,13 @@ public class Aluguel {
 		valorFinal = calculaValorFinal();
 	}
 
+	public Aluguel(int periodo, String cpf, String nome) {
+		this.periodo = periodo;
+		this.cpf = cpf;
+		this.nome = nome;
+	}
+
+	//nao coloquei o item junto se nao vai dar stack overflow
 	@Override
 	public String toString() {
 		return "Aluguel{" +
@@ -52,7 +62,7 @@ public class Aluguel {
 		item.adicionaAluguel(this);
 	}
 
-	//um aluguel nao teria que ter um Alugavel
+
 	public double calculaValorFinal() {
 		double valorTotal = periodo*item.getPrecoDiario();
 		//caso o periodo seja maior que 7 dias damos 10% de desconto no valor Total
@@ -100,6 +110,14 @@ public class Aluguel {
 
 	public double getValorFinal() {
 		return valorFinal;
+	}
+
+	public Alugavel getItem() {
+		return item;
+	}
+
+	public void setItem(Alugavel item) {
+		this.item = item;
 	}
 
 	//setter nesse caso nao faz sentido
